@@ -4,9 +4,9 @@ from game_observer import GameObserver
 
 
 class Symbol(Enum):
-    CROSS = "CROSS"
-    CIRCLE = "CIRCLE"
-    EMPTY = "EMPTY"
+    CROSS = "X"
+    CIRCLE = "O"
+    EMPTY = ""
 
 
 class Cell:

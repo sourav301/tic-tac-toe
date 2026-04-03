@@ -23,6 +23,7 @@ class Game(GameSubject):
         self.state.make_move(self, row, col, player)
 
         if self.check_winner(player):
+            print("winner- setting endstate")
             self.set_state(EndState())
 
     def switch_player(self):

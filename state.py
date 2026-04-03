@@ -13,6 +13,8 @@ class GameState(ABC):
 
 
 class InProgressState(GameState):
+    name = "InProgressState"
+
     def make_move(self, game: Game, row, col, player):  # type: ignore
         game.board.make_move(row, col, player)
         if game.check_winner(player):
@@ -23,5 +25,7 @@ class InProgressState(GameState):
 
 
 class EndState(GameState):
+    name = "EndState"
+
     def make_move(self, game, row, col, player):
         raise InvalidMoveException("Game has ended. Please restart.")
