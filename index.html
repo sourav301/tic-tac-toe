@@ -301,7 +301,7 @@
   <p class="subtitle">vs. FastAPI backend</p>
 
   <div class="api-url-row">
-    <input type="text" id="api-url" value="http://localhost:8000" placeholder="http://localhost:8000" />
+    <input type="text" id="api-url" placeholder="http://localhost:8000" />
     <button onclick="connect()">Connect</button>
   </div>
 
@@ -496,6 +496,8 @@
       cell.className = 'cell disabled';
       boardEl.appendChild(cell);
     }
+    // Set API URL input to current server
+    document.getElementById('api-url').value = apiBase;
   })();
 </script>
 </body>
