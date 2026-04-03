@@ -14,7 +14,7 @@ class Game(GameSubject):
         self.player2 = player2
         self.current_player = player1
         self.state = InProgressState()
-        self.winning_strategies = [RowWinner(),ColWinner(),DiagonalWinner()]
+        self.winning_strategies = [RowWinner(), ColWinner(), DiagonalWinner()]
         self.winner = None
 
     def make_move(self, row, col, player: Player):
