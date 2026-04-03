@@ -1,8 +1,7 @@
-from data import Player, InvalidMoveException
-from game_subject import GameSubject
-from state import GameState
-from state import InProgressState, EndState
 from board import Board
+from data import InvalidMoveException, Player
+from game_subject import GameSubject
+from state import EndState, GameState, InProgressState
 from winning_strategies import RowWinner
 
 

@@ -1,4 +1,4 @@
-from data import Cell, Player, Symbol, InvalidMoveException
+from data import Cell, InvalidMoveException, Player, Symbol
 
 
 class Board:

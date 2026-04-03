@@ -1,5 +1,5 @@
-from ticTacToeSystem import TicTacToeSystem
 from data import Player, Symbol
+from ticTacToeSystem import TicTacToeSystem
 
 
 class GameDemo:

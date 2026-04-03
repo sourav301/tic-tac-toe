@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from data import Player
+
 from board import Board
+from data import Player
 
 
 class WinningStrategy(ABC):

@@ -1,4 +1,5 @@
 from enum import Enum
+
 from game_observer import GameObserver
 
 

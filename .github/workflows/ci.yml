@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install python
         uses: actions/setup-python@v6
@@ -21,11 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install flake8
 
-      - name: Run flake8
+      - name: Check formatting with Black
         run: |
-          flake8 . --exclude venv
+          pip install black
+          black --check .
 
       - name: Run tests
         run: |

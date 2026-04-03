@@ -1,5 +1,6 @@
 from threading import Lock
-from data import Scoreboard, Player
+
+from data import Player, Scoreboard
 from game import Game
 
 

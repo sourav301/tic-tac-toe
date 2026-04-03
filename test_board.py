@@ -1,6 +1,7 @@
 import unittest
-from data import Player, Symbol, InvalidMoveException
+
 from board import Board
+from data import InvalidMoveException, Player, Symbol
 
 
 class TestBoardMakeMove(unittest.TestCase):
