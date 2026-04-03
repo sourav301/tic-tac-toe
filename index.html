@@ -301,11 +301,8 @@
   <p class="subtitle">vs. FastAPI backend</p>
 
   <div class="api-url-row">
-    <input type="text" id="api-url" placeholder="http://localhost:8000" />
-    <script>
-      document.getElementById('api-url').value = window.location.origin;
-    </script>
-<button onclick="connect()">Connect</button>
+    <input type="text" id="api-url" value="http://localhost:8000" placeholder="http://localhost:8000" />
+    <button onclick="connect()">Connect</button>
   </div>
 
   <div class="scores">
@@ -336,7 +333,7 @@
 </div>
 
 <script>
-  let apiBase = 'http://localhost:8000';
+  let apiBase = `${window.location.protocol}//${window.location.host}`;
   let gameState = null;   // last response from server
   let scores = { X: 0, O: 0 };
   let busy = false;
