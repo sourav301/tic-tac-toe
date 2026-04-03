@@ -2,7 +2,7 @@ from board import Board
 from data import InvalidMoveException, Player
 from game_subject import GameSubject
 from state import EndState, GameState, InProgressState
-from winning_strategies import RowWinner
+from winning_strategies import RowWinner, ColWinner, DiagonalWinner
 
 
 class Game(GameSubject):
@@ -14,7 +14,7 @@ class Game(GameSubject):
         self.player2 = player2
         self.current_player = player1
         self.state = InProgressState()
-        self.winning_strategies = [RowWinner()]
+        self.winning_strategies = [RowWinner(),ColWinner(),DiagonalWinner()]
         self.winner = None
 
     def make_move(self, row, col, player: Player):
