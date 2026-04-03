@@ -1,0 +1,43 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          # Ensure this secret is set to 'ec2-user'
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # 1. Install Docker if missing (Amazon Linux uses yum/dnf)
+            if ! command -v docker &> /dev/null; then
+              sudo yum update -y
+              sudo yum install docker -y
+              sudo systemctl start docker
+              sudo systemctl enable docker
+              sudo usermod -aG docker ec2-user
+            fi
+
+            # 2. Handle Application Directory
+            if [ ! -d "app" ]; then
+              git clone https://github.com/sourav301/tic-tac-toe.git app
+            fi
+
+            cd app
+            git pull origin main
+
+            # 3. Docker Lifecycle
+            # Rebuild and restart
+            docker build -t my-app .
+            docker stop my-app || true
+            docker rm my-app || true
+            docker run -d -p 8000:8000 --name my-app my-app
